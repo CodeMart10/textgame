@@ -94,13 +94,11 @@ class Attic(Scene):
 
     def play(self):
         print(dedent("""
-        Dark
+        Attic
+        why would you choose attic lol
+        the monster hears your footsteps and sprint up the upstairs
         """))
-        action = input('=> ')
-        if action == 'p':
-            return 'dark'
-        else:
-            return 'haunted'
+        return 'knockout'
 
 class Kitchen(Scene):
 
@@ -112,16 +110,34 @@ class Kitchen(Scene):
         type fight or flight
         """))
         action = input('=> ')
-        if action == 'p':
-            return 'done'
-        else:
+        if action == 'fight':
             return 'knockout'
+        else:
+            print(dedent("""
+            you look to see 2 ways out
+            press f for front door
+            press r for living room
+            """))
+            action = input('=> ')
+            if action == 'f'
+                print(dedent('well done you life'))
+                return 'done'
+
+            else:
+                print(dedent("""
+                lmao why the hell would you not pick the big front
+                door to freedom,
+                dumbass...
+                """))
+                return 'knockout'
 
 class Done(Scene):
     def play(self):
-        print('done')
-        return 'done'
-
+        print(dedent("""
+        you made it out but your not that cool
+        cuz this game was easy
+        """))
+        exit(1)
 class Knockout(Scene):
     def play(self):
         print('you got knocked out')
