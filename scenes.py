@@ -67,7 +67,7 @@ class Basement(Scene):
             """))
             action = input('=> ')
 
-            if item != '':
+            if action != ' ':
                 print(dedent(f"ok so you picked up {action} not sure how that will help"))
                 print(dedent('now that you have your awesome weapon you run upstairs.'))
                 return 'kitchen'
@@ -87,9 +87,9 @@ class Basement(Scene):
 
             #Basement path e choice "look quietly"
             if action == 'q':
-                print("""
+                print(dedent("""
                 you open the door quietly and peek in to see the
-                monster standing in the kitchen""")
+                monster standing in the kitchen"""))
                 return 'kitchen'
 
             #Basement path e choice "BE DOMINANT"
@@ -119,6 +119,7 @@ class Kitchen(Scene):
     #Kitchen dialogue
     def play(self):
         print(dedent("""
+        you enter the kitchen
         now is the time to throw you weapon at him if you have one
         the monster doesn't see you,
 
