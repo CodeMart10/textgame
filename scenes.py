@@ -119,7 +119,7 @@ class Kitchen(Scene):
             press r for living room
             """))
             action = input('=> ')
-            if action == 'f'
+            if action == 'f':
                 print(dedent('well done you life'))
                 return 'done'
 
