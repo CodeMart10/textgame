@@ -51,16 +51,21 @@ class Basement(Scene):
             and an office setup with a computer.
 
             If you want to use one of those as weapon
-            Press
-            p for ping pong paddle
-            t for ken barbie doll
-            c for the office computer
+            Type
+            ping pong paddle
+            ken barbie doll
+            the office computer
 
+            if you dont want anything say type nothing
             """))
             action = input('=> ')
-            return 'dark'
-        else:
-            return 'haunted'
+            if action != '':
+                print(dedent(f"ok so you picked up {action} not sure how that will help"))
+                print(dedent('now that you have your awesome weapon you run upstairs.'))
+                return 'kitchen'
+            else:
+                print('you think you break the rules?')
+                return "knockout"
 
 class Attic(Scene):
 
@@ -74,11 +79,11 @@ class Attic(Scene):
         else:
             return 'haunted'
 
-class Haunted(Scene):
+class Kithen(Scene):
 
     def play(self):
         print(dedent("""
-        Haunted
+        kitchen
         """))
         action = input('=> ')
         if action == 'p':

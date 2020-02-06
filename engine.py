@@ -17,7 +17,7 @@ class Map(object):
         'house': scenes.House(),
         'basement': scenes.Basement(),
         'attic': scenes.Attic(),
-        'haunted': scenes.Haunted(),
+        'kitchen': scenes.Kitchen(),
         'done': scenes.Done(),
         'knockout': scenes.Knockout()
     }
