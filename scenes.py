@@ -43,6 +43,7 @@ class Basement(Scene):
         Type e to run up the stairs to the basement door
         """))
         action = input('=> ')
+
         if action == 'c':
             print(dedent("""
             You quick scan around,
@@ -59,13 +60,35 @@ class Basement(Scene):
             if you dont want anything say type nothing
             """))
             action = input('=> ')
-            if action != '':
+
+            if item != '':
                 print(dedent(f"ok so you picked up {action} not sure how that will help"))
                 print(dedent('now that you have your awesome weapon you run upstairs.'))
                 return 'kitchen'
             else:
                 print('you think you break the rules?')
                 return "knockout"
+        else:
+            print(dedent("""
+            You run upstairs and push the door open quietly,
+            or assert dominance and slam it open?
+            q for quietly
+            capital D for DOMINANT!"""))
+
+            action = input('=> ')
+            if action == 'q':
+                print("""
+                you open the door quietly and peek in to see the
+                monster standing in the kitchen""")
+                return 'kitchen'
+
+            if action == 'D':
+                print(dedent("""
+                You launch the door open and the monster looks at you
+                immediately and runs at you.
+                Now you wish you had a weapon huh?
+                """))
+                return 'knockout'
 
 class Attic(Scene):
 
@@ -79,11 +102,14 @@ class Attic(Scene):
         else:
             return 'haunted'
 
-class Kithen(Scene):
+class Kitchen(Scene):
 
     def play(self):
         print(dedent("""
-        kitchen
+        now is the time to throw you weapon at him if you have one
+        the monster doesn't see you,
+
+        type fight or flight
         """))
         action = input('=> ')
         if action == 'p':
