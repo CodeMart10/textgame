@@ -1,13 +1,17 @@
 from random import randint
 from textwrap import dedent
 from sys import exit
+
+
 class Scene(object):
     def __init__(self):
         pass
 
+#House scene
 class House(Scene):
 
     def play(self):
+        #starting scene
         print(dedent("""
         Hello, welcome to my game.
         In this game you will start here in my house.
@@ -16,23 +20,24 @@ class House(Scene):
 
         Now, I will let you choose where you want to start.
 
-        Type b for 'basement' or a for 'attic'
+        Type b for 'basement'
+        or a for 'attic'
 
+        GOODLUCK!
         """))
-        print('GOODLUCK!')
         action = input('=> ')
 
+        #choice for start
         if action == 'b':
             return 'basement'
         else:
             return 'attic'
 
-        #get user input oto variable
-
-
+#Basement scene
 class Basement(Scene):
 
     def play(self):
+        #basement dialogue
         print(dedent("""
         You chose the basement
         The enemy is in the kitchen on the second floor.
@@ -44,6 +49,7 @@ class Basement(Scene):
         """))
         action = input('=> ')
 
+        #basement choice 'look around'
         if action == 'c':
             print(dedent("""
             You quick scan around,
@@ -68,6 +74,8 @@ class Basement(Scene):
             else:
                 print('you think you break the rules?')
                 return "knockout"
+
+        #basement choice 'run upstairs'
         else:
             print(dedent("""
             You run upstairs and push the door open quietly,
@@ -76,12 +84,15 @@ class Basement(Scene):
             capital D for DOMINANT!"""))
 
             action = input('=> ')
+
+            #Basement path e choice "look quietly"
             if action == 'q':
                 print("""
                 you open the door quietly and peek in to see the
                 monster standing in the kitchen""")
                 return 'kitchen'
 
+            #Basement path e choice "BE DOMINANT"
             if action == 'D':
                 print(dedent("""
                 You launch the door open and the monster looks at you
@@ -90,8 +101,10 @@ class Basement(Scene):
                 """))
                 return 'knockout'
 
+#Attic scene
 class Attic(Scene):
 
+    #Attic dialogue
     def play(self):
         print(dedent("""
         Attic
@@ -100,8 +113,10 @@ class Attic(Scene):
         """))
         return 'knockout'
 
+#Kitchen Scene
 class Kitchen(Scene):
 
+    #Kitchen dialogue
     def play(self):
         print(dedent("""
         now is the time to throw you weapon at him if you have one
@@ -109,20 +124,29 @@ class Kitchen(Scene):
 
         type fight or flight
         """))
+
         action = input('=> ')
+
+        #Kitchen choice "fight"
         if action == 'fight':
             return 'knockout'
+
+        #Kitchen choice "flight"
         else:
             print(dedent("""
             you look to see 2 ways out
             press f for front door
             press r for living room
             """))
+
             action = input('=> ')
+
+            #Kitchen path flight choice "front door"
             if action == 'f':
                 print(dedent('well done you life'))
                 return 'done'
 
+            #Kitchen path flight choice "living room"
             else:
                 print(dedent("""
                 lmao why the hell would you not pick the big front
@@ -131,6 +155,7 @@ class Kitchen(Scene):
                 """))
                 return 'knockout'
 
+#Won game
 class Done(Scene):
     def play(self):
         print(dedent("""
@@ -138,6 +163,8 @@ class Done(Scene):
         cuz this game was easy
         """))
         exit(1)
+
+#Game over
 class Knockout(Scene):
     def play(self):
         print('you got knocked out')
